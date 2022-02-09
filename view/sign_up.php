@@ -47,7 +47,7 @@ require('controller/Sign_up_controller.php');
                 <div class="btn-block">
                     <button name='sign_up' type="submit">sign up</button>
                 </div>
-
+                
         </div>
         </form>
         </div>

@@ -9,21 +9,18 @@ if (isset($_GET['url'])) {
 
 if ($url == '') {
     require 'view/home.php';
-} elseif (preg_match('#inscription-([0-9]+)#', $url, $params)) {
+} elseif (preg_match('#sign_up-([0-9]+)#', $url, $params)) {
     $sign_up = $params[1];
-    require 'sign_up.php';
+    require './view/sign_up.php';
 }
-elseif (preg_match('#connexion-([0-9]+)#', $url, $params)) {
-    $sign_in = $params[1];
-    require 'sign_in.php';
-}
+
 elseif (preg_match('#product-([0-9]+)#', $url, $params)) {
     $sign_in = $params[1];
-    require 'product.php';
-}elseif (preg_match('#connexion-([0-9]+)#', $url, $params)) {
+    require 'view/product.php';
+}elseif (preg_match('#sign_in-([0-9]+)#', $url, $params)) {
     $sign_in = $params[1];
-    require 'connexion.php';
+    require 'view/sign_in.php';
 }
 else {
-    require '404.php';
+    require 'view/404.php';
 }
