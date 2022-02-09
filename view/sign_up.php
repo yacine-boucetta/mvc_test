@@ -26,8 +26,8 @@ require('controller/Sign_up_controller.php');
                 <h2>Inscription</h2>
                 <p><?php
                     if (isset($_POST['sign_up'])) {
-                    $new_sign_up=new Sign_up_controller();
-                    $message=$new_sign_up->signUpAction();
+                    // $new_sign_up=new Sign_up_controller();
+                    // $message=$new_sign_up->signUpAction();
                     }
                     ?>
                 </p>
