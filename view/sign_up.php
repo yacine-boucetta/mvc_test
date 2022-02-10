@@ -17,6 +17,7 @@ require('controller/Sign_up_controller.php');
 
 
     <main class="container">
+        <a href='./'>home</a>
         <div class="testbox">
             <form class="sign" method="post">
 
@@ -24,13 +25,13 @@ require('controller/Sign_up_controller.php');
 
 
                 <h2>Inscription</h2>
-                <p><?php
-                    if (isset($_POST['sign_up'])) {
-                    $new_sign_up=new Sign_up_controller();
-                    $message=$new_sign_up->signUpAction();
-                    }
-                    ?>
-                </p>
+                <?php
+                if (isset($_POST['sign_up'])) {
+                    $new_sign_up = new Sign_up_controller($_POST['login'], $_POST['password']);
+                    $message = $new_sign_up->signUpAction();
+                }
+                ?>
+
 
                 <div class="item">
                     <label for="name">Login<span>*</span></label>

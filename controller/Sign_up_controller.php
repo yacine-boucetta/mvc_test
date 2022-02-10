@@ -1,9 +1,10 @@
 <?php
 
-class Sign_up_controller 
-{
-    public $new_user =new User($_POST['login'], $_POST['password']);
+require('model/User.php');
 
+
+class Sign_up_controller extends User
+{
     public function signUpAction()
     {
         $passwordlength = strlen($_POST['password']);
@@ -12,17 +13,15 @@ class Sign_up_controller
 
         if ($b > 0) {
             $message = loginError();
-            echo $message;
+            
         } else {
             if ($passwordlength < 6) {
                 $message = lengthError();
-                echo $message;
-            } else {
-                $new_user =new User($_POST['login'], $_POST['password']);
-                $logininscription = $new_user->setUser();
+                
+            } else { 
                 $this->password = password_hash($this->password, PASSWORD_BCRYPT);
-
-                var_dump($logininscription);
+                $new_user =new User($_POST['login'], $_POST['password']);
+                $new_user_sign_up = $new_user->setUser();
             }
         }
     }
