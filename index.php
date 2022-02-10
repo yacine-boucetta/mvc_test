@@ -9,16 +9,16 @@ if (isset($_GET['url'])) {
 
 if ($url == '') {
     require 'view/home.php';
-} if (preg_match('#sign_up#', $url, $params)) {
+} 
+elseif (preg_match('#sign_up#', $url, $params)) {
     
     require 'view/sign_up.php';
 }
-if (preg_match('#sign_in#', $url, $params)) {
-    
-    var_dump($url);
+elseif (preg_match('#sign_in#', $url, $params)) {
+
     require 'view/sign_in.php';
 }
-if (preg_match('#product-([0-9]+)#', $url, $params)) {
+elseif (preg_match('#product-([0-9]+)#', $url, $params)) {
     $sign_in = $params[1];
     require 'view/product.php';}
 // }if (preg_match('#connexion-([0-9]+)#', $url, $params)) {
