@@ -8,10 +8,8 @@ class User extends Model
     public $password;
 
 
-    function __construct(string $userLogin, string $userPassword)
+    function __construct()
     {
-        $this->login = $userLogin;
-        $this->password = $userPassword;
         parent::__construct($this->db);
         
     }
@@ -29,13 +27,14 @@ class User extends Model
         return $count;
     }
 
-    public function setUser()
+    public function setUser($login,$password)
     {
+
         $sqlinsert = "INSERT INTO utilisateurs(login,password) VALUES(:login,:password)";
         $signUp = $this->db->prepare($sqlinsert);
         $signUp->execute(array(
-            ":login" => $this->login,
-            ":password" => $this->password
+            ":login" => $login,
+            ":password" => $password
         ));
         $ok = $signUp->fetch(PDO::FETCH_ASSOC);
         return $ok;

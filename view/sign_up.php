@@ -1,6 +1,5 @@
 <?php
 
-require('controller/Sign_up_controller.php');
 ?>
 
 <!DOCTYPE html>
@@ -20,17 +19,9 @@ require('controller/Sign_up_controller.php');
         <a href='./'>home</a>
         <div class="testbox">
             <form class="sign" method="post">
-
-
-
-
+<p>
                 <h2>Inscription</h2>
-                <?php
-                if (isset($_POST['sign_up'])) {
-                    $new_sign_up = new Sign_up_controller($_POST['login'], $_POST['password']);
-                    $message = $new_sign_up->signUpAction();
-                }
-                ?>
+                
 
 
                 <div class="item">

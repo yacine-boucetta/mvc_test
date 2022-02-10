@@ -1,5 +1,6 @@
 <?php
 require('model/Model.php');
+require('model/Error.php');
 $url = '';
 
 if (isset($_GET['url'])) {
@@ -10,7 +11,10 @@ if ($url == '') {
     require 'view/home.php';
  } 
   elseif($url[0]=='sign_up' ){
-      require 'view/sign_up.php';
+      require 'controller/Sign_up_controller.php';
+      $k= new Sign_up_controller();
+      $k->signUpAction();
+      
   }
   elseif($url[0]=='sign_in' ){
     require 'view/sign_in.php';
