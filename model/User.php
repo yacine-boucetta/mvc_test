@@ -8,10 +8,8 @@ class User extends Model
     public $password;
 
 
-    function __construct(string $userLogin, string $userPassword)
+    function __construct()
     {
-        $this->login = $userLogin;
-        $this->password = $userPassword;
         parent::__construct($this->db);
         
     }
