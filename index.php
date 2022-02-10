@@ -9,22 +9,18 @@ if (isset($_GET['url'])) {
 
 if ($url == '') {
     require 'view/home.php';
- } 
-  elseif($url[0]=='sign_up' ){
-      require 'controller/Sign_up_controller.php';
-      $k= new Sign_up_controller();
-      $k->signUpAction();
-      
-  }
-  elseif($url[0]=='sign_in' ){
-    require 'view/sign_in.php';
-}
-elseif($url[0]=='product' ){
+} elseif ($url[0] == 'sign_up') {
+    require 'controller/signUpController.php';
+    $k = new Sign_up_controller();
+    $k->signUpAction();
+} elseif ($url[0] == 'sign_in') {
+    require 'controller/signInController.php';
+    $k = new Sign_in_controller();
+    $k->signInAction();
+} elseif ($url[0] == 'product') {
     require 'view/product.php';
-}
-elseif($url[0]=='admin' ){
+} elseif ($url[0] == 'admin') {
     require 'view/admin.php';
-}
-else {
+} else {
     require 'view/404.php';
 }
