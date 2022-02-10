@@ -19,7 +19,7 @@
         <a href='./'>home</a>
         <div class="testbox">
             <form class="sign" method="post">
-
+<p>
                 <h2>Inscription</h2>
                 
 
