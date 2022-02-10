@@ -1,6 +1,3 @@
-<?php
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +16,7 @@
         <a href='./'>home</a>
         <div class="testbox">
             <form class="sign" method="post">
-<p>
+<p><?php echo $message ?></p>
                 <h2>Inscription</h2>
                 
 
