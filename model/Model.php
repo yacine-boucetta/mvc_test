@@ -14,7 +14,16 @@ function __construct(){
 
 }
 
+public function checkUser($login){
+    $sqlinsert = "SELECT * FROM utilisateurs WHERE login=:login ";
+    $signIn=$this->db->prepare($sqlinsert);
+    $signIn->execute(array(
+        ':login'=>$login
+    ));
+    $checkUser=$signIn->fetch(PDO::FETCH_ASSOC);
+    return $checkUser;
 
+}
 
 
 

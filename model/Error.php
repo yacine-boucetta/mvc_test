@@ -13,5 +13,9 @@ function lengthError(){
     return $error;
 }
 
+function signError(){
+    $error='Le login ou le passe sont incorrect';
+    return $error;
+}
 
 ?>

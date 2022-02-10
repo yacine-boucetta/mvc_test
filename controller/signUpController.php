@@ -7,12 +7,11 @@ class Sign_up_controller extends User
 {
     public static function signUpAction()
     {
+        $message='';
         if (isset($_POST['sign_up'])) {
 
-        $message='';
         $passwordlength = strlen($_POST['password']);
-        
-        $a = new User($_POST['login'], $_POST['password']);
+        $a = new User(htmlspecialchars($_POST['login']), htmlspecialchars($_POST['password']));
         $b = $a->loginCount();
         
         if ($b > 0) {
@@ -23,15 +22,14 @@ class Sign_up_controller extends User
                 $message = lengthError();
                 
             } else { 
-                $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+                $password =htmlspecialchars(password_hash($_POST['password'],PASSWORD_BCRYPT));
                 $new_user =new User();
-                $new_user->setUser($_POST['login'],$password);
-                echo 'coucou';
+                $new_user->setUser(htmlspecialchars($_POST['login'], ENT_QUOTES, "ISO-8859-1"),$password);
             }
         }
     }
 
-    require('view/sign_up.php');
+    require('view/signUp.php');
     return $message;
     
 }
