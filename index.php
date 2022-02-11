@@ -22,23 +22,24 @@ if (isset($_GET['url'])) {
 }
 
 if ($url == '') {
-    require 'view/home.php';
- } 
-  elseif($url[0]=='sign_up' ){
-      require 'controller/Sign_up_controller.php';
-      $k= new Sign_up_controller();
-      $k->signUpAction();
-      
-  }
-  elseif($url[0]=='sign_in' ){
-    require 'view/sign_in.php';
-}
-elseif($url[0]=='product' ){
-    require 'controller/Product_controller.php';
-    $mabite = new Product();
-    $mabite->insertProduct();
-}
-elseif($url[0]=='admin' ){
+    require 'controller/homeController.php';
+    $k= new HomeController();
+    $k->homeDirection();
+} elseif ($url[0] == 'sign_up') {
+    require 'controller/signUpController.php';
+    $k = new Sign_up_controller();
+    $k->signUpAction();
+} elseif ($url[0] == 'sign_in') {
+    require 'controller/signInController.php';
+    $k = new Sign_in_controller();
+    $k->signInAction();
+} elseif ($url[0] == 'product') {
+    require 'controller/productController.php';
+    $k = new Product();
+    $k->insertProduct();
+    $k->displayProduct();
+
+} elseif ($url[0] == 'admin') {
     require 'view/admin.php';
 } else {
     require 'view/404.php';
