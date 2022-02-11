@@ -20,7 +20,9 @@ if ($url == '') {
     require 'view/sign_in.php';
 }
 elseif($url[0]=='product' ){
-    require 'view/product.php';
+    require 'controller/Product_controller.php';
+    $mabite = new Product();
+    $mabite->insertProduct();
 }
 elseif($url[0]=='admin' ){
     require 'view/admin.php';

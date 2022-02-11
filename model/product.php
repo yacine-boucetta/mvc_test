@@ -14,7 +14,7 @@ class Produit extends Model{
 
     public function insertProd($nom, $prix, $id_categorie){
 
-        $insertProd = $this->db->prepare("INSERT INTO product (nom, prix, id_categorie) VALUES (':nom', ':prix', ':id_categorie')");
+        $insertProd = $this->db->prepare("INSERT INTO product (nom, prix, id_categorie) VALUES (:nom, :prix, :id_categorie)");
         $insertProd->bindValue(':nom',$nom, PDO::PARAM_STR);
         $insertProd->bindValue(':prix',$prix, PDO::PARAM_STR);
         $insertProd->bindValue(':id_categorie',$id_categorie, PDO::PARAM_INT);

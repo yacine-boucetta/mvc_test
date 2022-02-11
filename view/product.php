@@ -14,5 +14,30 @@
     <li><a href= './admin'>admin</a></li>
     <li><a href= './sign_up'></a></li>
     </ul>
+
+    <form class="sign" method="post">
+    <div class="item">
+                    <label for="name">Nom<span>*</span></label>
+                    <input id="name" type="text" name="name" required />
+                </div>
+
+                <div class="item">
+                    <label for="prix">Prix<span>*</span></label>
+                    <input id="prix" name="prix" required />
+                </div>
+
+                <div class="item">
+                    <label for="idCat">Id Cat<span>*</span></label>
+                    <input id="idCat" name="idCat" required />
+                </div>
+
+                <div class="btn-block">
+                    <button name='addProd' type="submit">sign up</button>
+                </div>
+
+        </div>
+        </form>
+        </div>
+        </form>
 </body>
 </html>
