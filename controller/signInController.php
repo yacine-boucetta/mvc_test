@@ -1,7 +1,7 @@
 <?php
 
 require('model/User.php');
-class Sign_in_controller extends User
+class SignInController extends User
 
 {
     public static function signInAction()

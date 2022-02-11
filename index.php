@@ -2,18 +2,11 @@
 require_once('model/Model.php');
 require_once('model/Error.php');
 
-spl_autoload_register(function($class){
-    $paths = array(
-        join(DIRECTORY_SEPARATOR, [__DIR__]),
-        join(DIRECTORY_SEPARATOR, [__DIR__, 'controller']),
-        join(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src'])
-    );  
-    foreach($paths as $path){
-        $file = join(DIRECTORY_SEPARATOR, [$path, $class.'.php']) ;
-        if(file_exists($file))
-            return require_once $file;
-    }
-}); 
+spl_autoload_register(function ($className) {
+    $className = str_replace("\\", "/", $className);
+
+    require("controller/$className.php");
+});
 
 $url = '';
 
@@ -22,17 +15,11 @@ if (isset($_GET['url'])) {
 }
 
 if ($url == '') {
-    require 'controller/homeController.php';
-    $k= new HomeController();
-    $k->homeDirection();
+    HomeController::homeDirection();
 } elseif ($url[0] == 'sign_up') {
-    require 'controller/signUpController.php';
-    $k = new Sign_up_controller();
-    $k->signUpAction();
+    SignUpController::signUpAction();
 } elseif ($url[0] == 'sign_in') {
-    require 'controller/signInController.php';
-    $k = new Sign_in_controller();
-    $k->signInAction();
+    SignInController::signInAction();
 } elseif ($url[0] == 'product') {
     require 'view/product.php';
 } elseif ($url[0] == 'admin') {

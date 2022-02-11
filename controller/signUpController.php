@@ -3,7 +3,7 @@
 require('model/User.php');
 
 
-class Sign_up_controller extends User
+class SignUpController extends User
 {
     public static function signUpAction()
     {

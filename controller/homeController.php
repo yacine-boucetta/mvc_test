@@ -2,7 +2,7 @@
 
 class HomeController{
 
-    public function homeDirection(){
+    public static function homeDirection(){
         require('view/home.php');
     }
 }
