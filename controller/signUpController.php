@@ -28,9 +28,8 @@ class Sign_up_controller extends User
             }
         }
     }
-
     require('view/signUp.php');
-    return $message;
+
     
 }
 }

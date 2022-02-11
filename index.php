@@ -1,6 +1,20 @@
 <?php
-require('model/Model.php');
-require('model/Error.php');
+require_once('model/Model.php');
+require_once('model/Error.php');
+
+spl_autoload_register(function($class){
+    $paths = array(
+        join(DIRECTORY_SEPARATOR, [__DIR__]),
+        join(DIRECTORY_SEPARATOR, [__DIR__, 'controller']),
+        join(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src'])
+    );  
+    foreach($paths as $path){
+        $file = join(DIRECTORY_SEPARATOR, [$path, $class.'.php']) ;
+        if(file_exists($file))
+            return require_once $file;
+    }
+}); 
+
 $url = '';
 
 if (isset($_GET['url'])) {
@@ -8,7 +22,9 @@ if (isset($_GET['url'])) {
 }
 
 if ($url == '') {
-    require 'view/home.php';
+    require 'controller/homeController.php';
+    $k= new HomeController();
+    $k->homeDirection();
 } elseif ($url[0] == 'sign_up') {
     require 'controller/signUpController.php';
     $k = new Sign_up_controller();
